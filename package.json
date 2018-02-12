@@ -13,9 +13,21 @@
   },
   "homepage": "https://github.com/okta/samples-php#readme",
   "devDependencies": {
+    "cross-env": "^5.1.1",
     "forever-monitor": "1.7.1",
     "jasmine-reporters": "2.2.0",
     "protractor": "^5.1.0",
     "wait-on": "2.0.2"
+  },
+  "scripts": {
+    "test": "npm run test:e2e",
+    "okta-hosted-login-server": "composer sample:okta-hosted-login",
+    "test:okta-hosted-login": "protractor okta-oidc-tck/e2e-tests/okta-hosted-login/conf.js",
+    "custom-login-server": "composer sample:custom-login",
+    "test:custom-login": "protractor okta-oidc-tck/e2e-tests/custom-login/conf.js",
+    "resource-server": "composer sample:resource-server",
+    "test:e2e": "cross-env TEST_TYPE=implicit && npm run get-oidc-tck && npm run test:okta-hosted-login && npm run test:custom-login",
+    "get-oidc-tck": "[ ! -d okta-oidc-tck/ ] && git clone https://github.com/okta/okta-oidc-tck.git || echo \"TCK already cloned\"",
+    "pretest": "webdriver-manager update --gecko false"
   }
 }

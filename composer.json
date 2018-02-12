@@ -1,6 +1,6 @@
 {
     "name": "okta/samples-php",
-    "description": "Vanilla PHP OIDC Samples",
+    "description": "PHP Sample Applications for Okta",
     "license": "Apache-2.0",
     "authors": [
         {
@@ -10,12 +10,18 @@
     ],
     "require": {
         "php": "^7.0",
-        "nikic/fast-route": "^1.2"
+        "nikic/fast-route": "^1.2",
+        "twig/twig": "~2.0"
     },
     "scripts": {
         "post-install-cmd": "npm install",
         "post-update-cmd": "npm update",
-        "test": "phpunit",
-        "sample:custom-login": "php -S 127.0.0.1:8080 -t ./custom-login ./custom-login/index.php"
+        "test": "npm test",
+        "test:custom-login": "npm run test:custom-login",
+        "test:okta-hosted-login": "npm run test:okta-hosted-login",
+        "test:resource-server": "npm test:e2e",
+        "sample:custom-login": "php -S 127.0.0.1:8080 -t ./custom-login ./custom-login/index.php",
+        "sample:okta-hosted-login": "php -S 127.0.0.1:8080 -t ./okta-hosted-login ./okta-hosted-login/index.php",
+        "sample:resource-server": "php -S 127.0.0.1:8080 -t ./resource-server ./resource-server/index.php"
     }
 }
