@@ -1,0 +1,21 @@
+{
+  "name": "@okta/samples-php",
+  "version": "1.0.0",
+  "description": "PHP Sample Applications for Okta",
+  "author": "Brian Retterer <brian.retterer@okta.com>",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/okta/samples-php.git"
+  },
+  "bugs": {
+    "url": "https://github.com/okta/samples-php/issues"
+  },
+  "homepage": "https://github.com/okta/samples-php#readme",
+  "devDependencies": {
+    "forever-monitor": "1.7.1",
+    "jasmine-reporters": "2.2.0",
+    "protractor": "^5.1.0",
+    "wait-on": "2.0.2"
+  }
+}
