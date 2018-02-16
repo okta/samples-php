@@ -11,7 +11,11 @@
     "require": {
         "php": "^7.0",
         "nikic/fast-route": "^1.2",
-        "twig/twig": "~2.0"
+        "twig/twig": "~2.0",
+        "vlucas/phpdotenv": "^2.4",
+        "okta/jwt-verifier": "^0.2.0",
+        "guzzlehttp/psr7": "^1.4",
+        "spomky-labs/jose": "^7.0"
     },
     "scripts": {
         "post-install-cmd": "npm install",
