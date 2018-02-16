@@ -36,8 +36,8 @@
     <div>
         <h2>My Profile</h2>
         <p>Hello, <span>{{ profile.sub }}</span>. Below is the information that was read with your <a
-                    href="https://developer.okta
-        .com/docs/api/resources/oidc.html#get-user-information">Access Token</a>.
+                    href="https://developer.okta.com/docs/api/resources/oidc.html#get-user-information"
+                    target="_blank">Access Token</a>.
         </p>
 
       </div>
@@ -53,7 +53,11 @@
         {% for key, claim in profile %}
           <tr>
                 <td>{{ key }}</td>
+              {% if key == "sub" %}
+              <td id="claim-email">
+              {% else %}
                 <td id="claim-{{ key }}">
+                {% endif %}
                     {% if claim is iterable %}
                     {% for item in claim %}
                     {{ item }}

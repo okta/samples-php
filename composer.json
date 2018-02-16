@@ -22,7 +22,7 @@
         "post-update-cmd": "npm update",
         "test": "npm test",
         "test:custom-login": "npm run test:custom-login",
-        "test:okta-hosted-login": "npm run test:okta-hosted-login",
+        "test:okta-hosted-login": "if [[ -f testenv ]]; then source testenv; fi && npm run test:okta-hosted-login",
         "test:resource-server": "npm test:e2e",
         "sample:custom-login": "php -S 127.0.0.1:8080 -t ./custom-login ./custom-login/index.php",
         "sample:okta-hosted-login": "php -S 127.0.0.1:8080 -t ./okta-hosted-login ./okta-hosted-login/index.php",
