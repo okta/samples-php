@@ -26,6 +26,8 @@
         "test:resource-server": "if [[ -f testenv ]]; then source testenv; fi && npm test:e2e",
         "sample:custom-login": "php -S 127.0.0.1:8080 -t ./custom-login ./custom-login/index.php",
         "sample:okta-hosted-login": "php -S 127.0.0.1:8080 -t ./okta-hosted-login ./okta-hosted-login/index.php",
-        "sample:resource-server": "php -S 127.0.0.1:8080 -t ./resource-server ./resource-server/index.php"
+        "sample:resource-server": "php -S 127.0.0.1:8080 -t ./resource-server ./resource-server/index.php",
+        "get-okta-oidc-tck": "if [[ `echo npm -v` ]]; then npm run get-oidc-tck; fi",
+        "update-okta-oidc-tck": "if [[ `echo npm -v` ]]; then npm run update-oidc-tck; fi"
     }
 }
