@@ -3,3 +3,4 @@ node_modules
 okta-oidc-tck
 testenv
 build2
+.env
