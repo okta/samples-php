@@ -72,18 +72,6 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) u
         header('Location: /');
     });
 
-    $r->get('/api/messages', function() {
-        if(!isAuthenticated()) {
-            header('Location: /');
-        }
-
-        return json_encode([
-            "messages" => [
-                "date" => new DateTime(),
-                "text" => "I am a robot."
-            ]
-        ]);
-    });
 });
 
 function exchangeCode($code) {
