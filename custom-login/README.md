@@ -27,4 +27,4 @@ You can login with the same account that you created when signing up for your De
 
 [Okta Sign In Widget]: https://github.com/okta/okta-signin-widget
 [OIDC WEB Setup Instructions]: https://developer.okta.com/authentication-guide/implementing-authentication/auth-code#1-setting-up-your-application
-[root projects readme]: /okta/samples-php/#installing
+[root projects readme]: README.md#installing
