@@ -18,8 +18,8 @@
         "spomky-labs/jose": "^7.0"
     },
     "scripts": {
-        "post-install-cmd": "npm install",
-        "post-update-cmd": "npm update",
+        "post-install-cmd": "if [[ `echo npm -v` ]]; then npm install; fi",
+        "post-update-cmd": "if [[ `echo npm -v` ]]; then npm update; fi",
         "test": "if [[ -f testenv ]]; then source testenv; fi && npm test",
         "test:custom-login": "if [[ -f testenv ]]; then source testenv; fi && npm run test:custom-login",
         "test:okta-hosted-login": "if [[ -f testenv ]]; then source testenv; fi && npm run test:okta-hosted-login",
