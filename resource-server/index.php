@@ -1,4 +1,7 @@
 <?php
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
+header("Access-Control-Allow-Headers: Authorization");
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
@@ -18,6 +21,7 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     });
 
     $r->addRoute('OPTIONS', '/api/messages', function() {
+
         print '';
     });
     $r->get('/api/messages', function() {
@@ -27,11 +31,11 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
             [
                 "messages" => [
                     [
-                        "date" => new DateTime(),
+                        "date" => time(),
                         "text" => "I am a robot."
                     ],
                     [
-                        "date" => new DateTime(time() - 3600),
+                        "date" => time()-3600,
                         "text" => "Hello, World!"
                     ]
                 ]
