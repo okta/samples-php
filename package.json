@@ -28,7 +28,6 @@
     "test:custom-login": "protractor okta-oidc-tck/e2e-tests/custom-login/conf.js",
     "resource-server": "composer sample:resource-server",
     "test:resource-server": "jasmine okta-oidc-tck/resource-server/specs/okta-resource-server-spec.js",
-    "test:e2e": "npm run get-oidc-tck && npm run test:okta-hosted-login && npm run test:custom-login",
     "get-oidc-tck": "[ ! -d okta-oidc-tck/ ] && git clone https://github.com/okta/okta-oidc-tck.git || echo \"TCK already cloned\"",
     "update-oidc-tck": "if [ -d okta-oidc-tck/ ]; then cd okta-oidc-tck && git pull; else echo \"TCK was not installed, installing\" && npm run get-oidc-tck; fi;",
     "pretest": "webdriver-manager update --gecko false"

@@ -1,0 +1,29 @@
+{
+  "name": "okta/samples-php",
+  "description": "Okta Hosted Login Sample Application for Okta",
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "Brian Retterer",
+      "email": "brian.retterer@okta.com"
+    }
+  ],
+  "require": {
+    "php": "^7.0",
+    "nikic/fast-route": "^1.2",
+    "twig/twig": "~2.0",
+    "vlucas/phpdotenv": "^2.4",
+    "okta/jwt-verifier": "^0.2.0",
+    "guzzlehttp/psr7": "^1.4",
+    "spomky-labs/jose": "^7.0"
+  },
+  "scripts": {
+    "server:start": "php -S 127.0.0.1:8080 -t ./ ./index.php",
+    "test": "cd ../ && if [[ -f testenv ]]; then source testenv; fi && npm run test:okta-hosted-login"
+  },
+  "autoload": {
+    "files": [
+      "functions.php"
+    ]
+  }
+}
