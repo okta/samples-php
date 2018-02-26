@@ -1,0 +1,26 @@
+language: php
+
+matrix:
+  include:
+  - php: 7.0
+    env: TEST=e2e
+  - php: 7.0
+    env: TEST=resource-server
+    env: CLIENT_ID=$RS_CLIENT_ID
+  - php: 7.1
+    env: TEST=e2e
+  - php: 7.1
+    env: TEST=resource-server
+    env: CLIENT_ID=$RS_CLIENT_ID
+  - php: 7.2
+    env: TEST=e2e
+  - php: 7.2
+    env: TEST=resource-server
+    env: CLIENT_ID=$RS_CLIENT_ID
+
+install:
+  - composer install --prefer-dist --no-interaction --no-suggest
+
+script:
+  - if [[ $TEST = 'resource=-server' ]]; then composer test:resource-server; fi
+  - if [[ $TEST = 'e2e' ]]; then composer test:e2e; fi

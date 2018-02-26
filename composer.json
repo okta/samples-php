@@ -20,7 +20,7 @@
     "scripts": {
         "post-install-cmd": "if [[ `echo npm -v` ]]; then npm install; fi",
         "post-update-cmd": "if [[ `echo npm -v` ]]; then npm update; fi",
-        "test": "if [[ -f testenv ]]; then source testenv; fi && npm test",
+        "test": "if [[ -f testenv ]]; then source testenv; fi && npm test && if [[ -f testenv.resource-server ]]; then source testenv.resource-server; fi && npm run test:resource-server",
         "test:custom-login": "if [[ -f testenv ]]; then source testenv; fi && npm run test:custom-login",
         "test:okta-hosted-login": "if [[ -f testenv ]]; then source testenv; fi && npm run test:okta-hosted-login",
         "test:resource-server": "if [[ -f testenv.resource-server ]]; then source testenv.resource-server; fi && npm run test:resource-server",
