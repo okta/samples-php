@@ -40,7 +40,7 @@ ISSUER=https://{yourOktaDomain}.com/oauth2/default
 Now start the app server:
 
 ```
-composer sample:okta-hosted-login
+composer server:start
 ```
 
 Now navigate to http://localhost:8080 in your browser.
