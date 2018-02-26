@@ -22,7 +22,7 @@ $loader = new Twig_Loader_Filesystem(__DIR__ . '/views');
 $twig = new Twig_Environment($loader);
 
 $dotenv = new Dotenv\Dotenv(__DIR__);
-$dotenv->load();
+$dotenv->overload();
 
 $state = 'applicationState';
 
