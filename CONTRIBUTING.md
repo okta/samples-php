@@ -35,7 +35,7 @@ $ git rebase upstream/master
 Making changes
 --------------
 
-It is important that you create a new branch to make changes on and that you do not change the `master` branch (other than to rebase in changes from `upstream/master`).  In this example I will assume you will be making your changes to a branch called `feature_x`.  This `feature_x` branch will be created on your local repository and will be pushed to your forked repository on GitHub.  Once this branch is on your fork you will create a Pull Request for the changes to be added to the Okta PHP Samples project.
+It is important that you create a new branch to make changes on and that you do not change the `master` branch (other than to rebase in changes from `upstream/master`).  In this example I will assume you will be making your changes to a branch called `feature/my-new-feature`.  This `feature/my-new-feature` branch will be created on your local repository and will be pushed to your forked repository on GitHub.  Once this branch is on your fork you will create a Pull Request for the changes to be added to the Okta PHP Samples project.
 
 It is best practice to create a new branch each time you want to contribute to the project and only track the changes for that pull request in this branch.
 
@@ -47,7 +47,7 @@ $ git add .
 $ git commit -a -m "descriptive commit message for your changes"
 ```
 
-> The `-b` specifies that you want to create a new branch called `feature/my-new-feature`.  You only specify `-b` the first time you checkout because you are creating a new branch.  Once the `feature_x` branch exists, you can later switch to it with only `git checkout feature_x`.
+> The `-b` specifies that you want to create a new branch called `feature/my-new-feature`.  You only specify `-b` the first time you checkout because you are creating a new branch.  Once the `feature/my-new-feature` branch exists, you can later switch to it with only `git checkout feature/my-new-feature`.
 
 
 Rebase `feature/my-new-feature` to include updates from `upstream/master`
@@ -77,31 +77,31 @@ Make a GitHub Pull Request to contribute your changes
 
 When you are happy with your changes and you are ready to contribute them, you will create a Pull Request on GitHub to do so.  This is done by pushing your local changes to your forked repository (default remote name is `origin`) and then initiating a pull request on GitHub.
 
-> **IMPORTANT:** Make sure you have rebased your `feature_x` branch to include the latest code from `upstream/master` _before_ you do this.
+> **IMPORTANT:** Make sure you have rebased your `feature/my-new-feature` branch to include the latest code from `upstream/master` _before_ you do this.
 
 ``` bash
 $ git push origin master
-$ git push origin feature_x
+$ git push origin feature/my-new-feature
 ```
 
-Now that the `feature_x` branch has been pushed to your GitHub repository, you can initiate the pull request.
+Now that the `feature/my-new-feature` branch has been pushed to your GitHub repository, you can initiate the pull request.
 
 To initiate the pull request, do the following:
 
 1. In your browser, navigate to your forked repository: [https://github.com/YOUR_ACCOUNT/samples-php](https://github.com/YOUR_ACCOUNT/samples-php)
 2. Click the new button called '**Compare & pull request**' that showed up just above the main area in your forked repository
-3. Validate the pull request will be into the upstream `master` and will be from your `feature_x` branch
+3. Validate the pull request will be into the upstream `master` and will be from your `feature/my-new-feature` branch
 4. Enter a detailed description of the work you have done and then click '**Send pull request**'
 
-If you are requested to make modifications to your proposed changes, make the changes locally on your `feature_x` branch, re-push the `feature_x` branch to your fork.  The existing pull request should automatically pick up the change and update accordingly.
+If you are requested to make modifications to your proposed changes, make the changes locally on your `feature/my-new-feature` branch, re-push the `feature/my-new-feature` branch to your fork.  The existing pull request should automatically pick up the change and update accordingly.
 
 
 Cleaning up after a successful pull request
 -------------------------------------------
 
-Once the `feature_x` branch has been committed into the `upstream/master` branch, your local `feature_x` branch and the `origin/feature_x` branch are no longer needed.  If you want to make additional changes, restart the process with a new branch.
+Once the `feature/my-new-feature` branch has been committed into the `upstream/master` branch, your local `feature/my-new-feature` branch and the `origin/feature/my-new-feature` branch are no longer needed.  If you want to make additional changes, restart the process with a new branch.
 
-> **IMPORTANT:** Make sure that your changes are in `upstream/master` before you delete your `feature_x` and `origin/feature_x` branches!
+> **IMPORTANT:** Make sure that your changes are in `upstream/master` before you delete your `feature/my-new-feature` and `origin/feature/my-new-feature` branches!
 
 You can delete these deprecated branches with the following:
 
