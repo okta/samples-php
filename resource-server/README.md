@@ -35,7 +35,7 @@ Now you need to gather the following information from the Okta Developer Console
 - **Client ID**  - The client ID of the SPA application that you created earlier. This can be found on the "General" tab of an application, or the list of applications. This identifies the application that tokens will be minted for.
 - **Issuer** - This is the URL of the authorization server that will perform authentication.  All Developer Accounts have a "default" authorization server.  The issuer is a combination of your Org URL (found in the upper right of the console home page) and `/oauth2/default`. For example, `https://dev-1234.oktapreview.com/oauth2/default`.
 
-Now that you have the information from your organization that you need, copy the [`.env.dist`][] to `.env` and fill in the information you gathered.
+Now that you have the information from your organization that you need, copy the [`.env.dist`](.env.dist) to `.env` and fill in the information you gathered.
 
 Next, Start the resource server example:
 
@@ -52,4 +52,3 @@ Once the front-end sample is running, you can navigate to http://localhost:8080 
 [Okta Vue Sample Apps]: https://github.com/okta/samples-js-vue
 [Okta React Sample Apps]: https://github.com/okta/samples-js-react
 [OIDC SPA Setup Instructions]: https://developer.okta.com/authentication-guide/implementing-authentication/implicit#1-setting-up-your-application
-[.env.dist]: .env.dist
