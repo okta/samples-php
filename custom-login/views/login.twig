@@ -35,9 +35,9 @@
 <div id="sign-in-widget"></div>
 <script type="text/javascript">
     var config = {};
-    config.baseUrl = "{{ env.ORGANIZATION_URL }}";
+    config.baseUrl = "{{ env.BASE_URL }}";
     config.clientId = "{{ env.CLIENT_ID }}";
-    config.redirectUri = "{{ env.REDIRECT_URI }}";
+    config.redirectUri = "http://localhost:8080/authorization-code/callback";
     config.logo = 'http://php.net/images/logos/php-med-trans.png';
     config.authParams = {
       issuer: "{{ env.ISSUER }}",

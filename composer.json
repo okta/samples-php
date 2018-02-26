@@ -23,7 +23,7 @@
         "test": "if [[ -f testenv ]]; then source testenv; fi && npm test",
         "test:custom-login": "if [[ -f testenv ]]; then source testenv; fi && npm run test:custom-login",
         "test:okta-hosted-login": "if [[ -f testenv ]]; then source testenv; fi && npm run test:okta-hosted-login",
-        "test:resource-server": "if [[ -f testenv ]]; then source testenv; fi && npm test:e2e",
+        "test:resource-server": "if [[ -f testenv.resource-server ]]; then source testenv.resource-server; fi && npm run test:resource-server",
         "sample:custom-login": "php -S 127.0.0.1:8080 -t ./custom-login ./custom-login/index.php",
         "sample:okta-hosted-login": "php -S 127.0.0.1:8080 -t ./okta-hosted-login ./okta-hosted-login/index.php",
         "sample:resource-server": "php -S 127.0.0.1:8000 -t ./resource-server ./resource-server/index.php",
