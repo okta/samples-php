@@ -107,6 +107,6 @@ You can delete these deprecated branches with the following:
 
 ``` bash
 $ git checkout master
-$ git branch -D feature_x
-$ git push origin :feature_x
+$ git branch -D feature/my-new-feature
+$ git push origin :feature/my-new-feature
 ```
