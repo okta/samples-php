@@ -25,12 +25,12 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) u
             'response_type' => 'code',
             'response_mode' => 'query',
             'scope' => 'openid profile',
-            'redirect_uri' => getenv('REDIRECT_URI'),
+            'redirect_uri' => 'http://localhost:8080/authorization-code/callback',
             'state' => $state,
             'nonce' => microtime()
         ]);
 
-        header('Location: ' . getenv("ORGANIZATION_URL").'oauth2/default/v1/authorize?'.$query);
+        header('Location: ' . getenv("ISSUER").'/v1/authorize?'.$query);
     });
 
     $r->get('/authorization-code/callback', function() use ($state) {
@@ -79,7 +79,7 @@ function exchangeCode($code) {
     $query = http_build_query([
         'grant_type' => 'authorization_code',
         'code' => $code,
-        'redirect_uri' => getenv('REDIRECT_URI')
+        'redirect_uri' => 'http://localhost:8080/authorization-code/callback'
     ]);
     $headers = [
         'Authorization: Basic ' . $authHeaderSecret,
@@ -88,7 +88,7 @@ function exchangeCode($code) {
         'Connection: close',
         'Content-Length: 0'
     ];
-    $url = getenv("ORGANIZATION_URL").'oauth2/default/v1/token?' . $query;
+    $url = getenv("ISSUER").'/v1/token?' . $query;
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);

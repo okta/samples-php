@@ -14,12 +14,6 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
         print "Hello!  There's not much to see here :) Please grab one of our front-end samples for use with this sample resource server";
     });
 
-    $r->get('/secure', function() {
-        $verifiedJwt = authenticate();
-
-        print $verifiedJwt->getJwt();
-    });
-
     $r->addRoute('OPTIONS', '/api/messages', function() {
 
         print '';
@@ -72,7 +66,7 @@ function authenticate() {
 
         return $jwtVerifier->verify($matches[1]);
     } catch (\Exception $e) {
-        http_response_code('401');
+        http_response_code(401);
         die('Unauthorized');
     }
 }
