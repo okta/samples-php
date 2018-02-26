@@ -28,7 +28,7 @@ You also need to gather the following information from the Okta Developer Consol
 - **Client ID** and **Client Secret** - These can be found on the "General" tab of the Web application that you created earlier in the Okta Developer Console.
 - **Issuer** - This is the URL of the authorization server that will perform authentication.  All Developer Accounts have a "default" authorization server.  The issuer is a combination of your Org URL (found in the upper right of the console home page) and `/oauth2/default`. For example, `https://dev-1234.oktapreview.com/oauth2/default`.
 
-Now that you have the information from your organization that you need, copy the `.env.dist` to `.env` and fill in the information you gathered.
+Now that you have the information from your organization that you need, copy the [.env.dist][] to `.env` and fill in the information you gathered.
 
 ```bash
 CLIENT_ID={yourClientId}
@@ -50,3 +50,5 @@ If you see a home page that prompts you to login, then things are working!  Clic
 You can login with the same account that you created when signing up for your Developer Org, or you can use a known username and password from your Okta Directory.
 
 **Note:** If you are currently using your Developer Console, you already have a Single Sign-On (SSO) session for your Org.  You will be automatically logged into your application as the same user that is using the Developer Console.  You may want to use an incognito tab to test the flow from a blank slate.
+
+[.env.dist]: .env.dist
