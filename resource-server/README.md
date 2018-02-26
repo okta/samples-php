@@ -40,7 +40,7 @@ Now that you have the information from your organization that you need, copy the
 Next, Start the resource server example:
 
 ```bash
-composer sample:resource-server
+composer server:start
 ```
 
 Finally, install the [front-end sample project of your choice](Prerequisites) and run the sample application.
