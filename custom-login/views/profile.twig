@@ -52,21 +52,21 @@
         <tbody>
         {% for key, claim in profile %}
           <tr>
-                <td>{{ key }}</td>
-              {% if key == "sub" %}
-              <td id="claim-email">
-              {% else %}
-                <td id="claim-{{ key }}">
-                {% endif %}
-                    {% if claim is iterable %}
-                    {% for item in claim %}
-                    {{ item }}
-                    {% endfor %}
-                    {% else %}
-                    {{ claim }}
-                    {% endif %}
-                </td>
-            </tr>
+            <td>{{ key }}</td>
+            {% if key == "sub" %}
+            <td id="claim-email">
+            {% else %}
+            <td id="claim-{{ key }}">
+            {% endif %}
+            {% if claim is iterable %}
+                {% for item in claim %}
+                {{ item }}
+                {% endfor %}
+            {% else %}
+                {{ claim }}
+            {% endif %}
+            </td>
+          </tr>
         {% endfor %}
         </tbody>
       </table>

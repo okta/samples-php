@@ -3,10 +3,10 @@ This repository contains several sample applications that demonstrate various Ok
 
 Please find the sample that fits your use-case from the table below.
 
-| Sample | Description |
-|--------|-------------|
+| Sample                                  | Description |
+|-----------------------------------------|-------------|
 | [Okta-Hosted Login](/okta-hosted-login) | A PHP application that will redirect the user to the Okta-Hosted login page of your Org for authentication.  The user is redirected back to the PHP application after authenticating. |
-| [Custom Login Page](/custom-login) | A PHP application that uses the Okta Sign-In Widget within the PHP application to authenticate the user. |
+| [Custom Login Page](/custom-login)      | A PHP application that uses the Okta Sign-In Widget within the PHP application to authenticate the user. |
 
 
 ## Requirements

@@ -34,7 +34,6 @@ Now that you have the information from your organization that you need, copy the
 CLIENT_ID={yourClientId}
 CLIENT_SECRET={yourClientSecret}
 ISSUER=https://{yourOktaDomain}.com/oauth2/default
-
 ```
 
 Now start the app server:
