@@ -27,10 +27,13 @@
             "echo \"Updating Resource Server Dependencies\" && cd resource-server && composer update"
         ],
         "test": [
+            "composer test:e2e",
+            "composer test:resource-server"
+        ],
+        "test:e2e": [
             "composer setup-env",
             "composer test:custom-login",
-            "composer test:okta-hosted-login",
-            "composer test:resource-server"
+            "composer test:okta-hosted-login"
         ],
         "test:custom-login": [
             "composer setup-env",
