@@ -18,6 +18,9 @@ const fs = require('fs');
 const { execSync } = require('child_process');
 const path = require('path');
 
+// Users can also provide the testenv configuration at the root folder
+require('dotenv').config({path: path.join(__dirname, '..', 'testenv')});
+
 function updateConfig(directory) {
   if (!process.env.ISSUER || !process.env.CLIENT_ID || !process.env.CLIENT_SECRET || !process.env.USERNAME || !process.env.PASSWORD) {
     console.log('[ERROR] Please set the necessary Environment variables (ISSUER, CLIENT_ID, CLIENT_SECRET, USERNAME, PASSWORD)');
@@ -32,6 +35,7 @@ function updateConfig(directory) {
   if (directory.includes('resource-server')) {
     if (!process.env.SPA_CLIENT_ID) {
       console.error('[ERROR] Please set the SPA_CLIENT_ID for resource-server tests');
+      process.exit(1);
     }
     clientId = process.env.SPA_CLIENT_ID;
   }
