@@ -111,13 +111,15 @@ For Windows, please set the following environment variables:
 Then run the E2E tests:
 
 ```bash
-npm test
+composer test
 ```
 
-> **NOTE:** If you want to execute individual tests such as `npm run test:okta-hosted-login`, you will need to update the environment by running the following node script first:
+> **NOTE:** If you want to execute tests for okta-hosted-login, custom-login or resource-server in isolation, you can run the following scripts
 
 ```bash
-node scripts/setup-env.js
+composer test:okta-hosted-login
+composer test:custom-login
+composer test:resource-server
 ```
 
 Make a GitHub Pull Request to contribute your changes

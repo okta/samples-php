@@ -13,14 +13,12 @@
     },
     "scripts": {
         "post-install-cmd": [
-            "composer get-okta-oidc-tck",
             "if [[ `echo npm -v` ]]; then npm install; fi",
             "echo \"Installing Custom Login Dependencies\" && cd custom-login && composer install",
             "echo \"Installing Okta Hosted Login Dependencies\" && cd okta-hosted-login && composer install",
             "echo \"Installing Resource Server Dependencies\" && cd resource-server && composer install"
         ],
         "post-update-cmd": [
-            "composer get-okta-oidc-tck",
             "if [[ `echo npm -v` ]]; then npm update; fi",
             "echo \"Updating Custom Login Dependencies\" && cd custom-login && composer update",
             "echo \"Updating Okta Hosted Login Dependencies\" && cd okta-hosted-login && composer update",
