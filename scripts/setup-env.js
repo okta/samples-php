@@ -51,19 +51,9 @@ function updateAllConfigs() {
   const customLoginDir = path.join(__dirname, '..', 'custom-login');
   const resourceServerDir = path.join(__dirname, '..', 'resource-server');
 
-  if (process.platform === 'win32') {
-    execSync(`copy ${path.join(oktaHostedLoginDir, '.env.dist')} ${path.join(oktaHostedLoginDir, '.env')}`);
-    execSync(`copy ${path.join(customLoginDir, '.env.dist')} ${path.join(customLoginDir, '.env')}`);
-    execSync(`copy ${path.join(resourceServerDir, '.env.dist')} ${path.join(resourceServerDir, '.env')}`);
-  } else {
-    execSync(`cp ${path.join(oktaHostedLoginDir, '.env.dist')} ${path.join(oktaHostedLoginDir, '.env')}`);
-    execSync(`cp ${path.join(customLoginDir, '.env.dist')} ${path.join(customLoginDir, '.env')}`);
-    execSync(`cp ${path.join(resourceServerDir, '.env.dist')} ${path.join(resourceServerDir, '.env')}`);
-  }
-
-  updateConfig(oktaHostedLoginDir);
-  updateConfig(customLoginDir);
-  updateConfig(resourceServerDir);
+  copyAndUpdateConfig(oktaHostedLoginDir);
+  copyAndUpdateConfig(customLoginDir);
+  copyAndUpdateConfig(resourceServerDir);
 }
 
 function cloneRepository(repository, directory) {
@@ -77,6 +67,21 @@ function cloneRepository(repository, directory) {
   const command = `git clone ${repository}`;
   console.log(`Cloning repository ${directory}`);
   execSync(command);
+}
+
+function copyAndUpdateConfig(directory) {
+  const envFile = path.join(directory, '.env');
+
+  if (fs.existsSync(envFile)) {
+    console.log(`.env file already exists in ${directory}`);
+    return;
+  }
+
+  const copyCommand = process.platform === 'win32'? 'copy' : 'cp';
+
+  execSync(`${copyCommand} ${path.join(directory, '.env.dist')} ${path.join(directory, '.env')}`);
+
+  updateConfig(directory);
 }
 
 updateAllConfigs();
