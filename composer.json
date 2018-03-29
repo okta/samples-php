@@ -13,42 +13,42 @@
     },
     "scripts": {
         "post-install-cmd": [
-            "composer get-okta-oidc-tck",
-            "if [[ `echo npm -v` ]]; then npm install; fi",
+            "npm install",
             "echo \"Installing Custom Login Dependencies\" && cd custom-login && composer install",
             "echo \"Installing Okta Hosted Login Dependencies\" && cd okta-hosted-login && composer install",
             "echo \"Installing Resource Server Dependencies\" && cd resource-server && composer install"
         ],
         "post-update-cmd": [
-            "composer get-okta-oidc-tck",
-            "if [[ `echo npm -v` ]]; then npm update; fi",
+            "npm update",
             "echo \"Updating Custom Login Dependencies\" && cd custom-login && composer update",
             "echo \"Updating Okta Hosted Login Dependencies\" && cd okta-hosted-login && composer update",
             "echo \"Updating Resource Server Dependencies\" && cd resource-server && composer update"
         ],
         "test": [
-            "composer update-okta-oidc-tck",
-            "composer test:custom-login",
-            "composer test:okta-hosted-login",
+            "composer test:e2e",
             "composer test:resource-server"
         ],
+        "test:e2e": [
+            "composer setup-env",
+            "composer test:custom-login",
+            "composer test:okta-hosted-login"
+        ],
         "test:custom-login": [
-            "composer update-okta-oidc-tck",
-            "if [[ -f testenv ]]; then source testenv; fi && npm run test:custom-login"
+            "composer setup-env",
+            "npm run test:custom-login"
         ],
         "test:okta-hosted-login": [
-            "composer update-okta-oidc-tck",
-            "if [[ -f testenv ]]; then source testenv; fi && npm run test:okta-hosted-login"
+            "composer setup-env",
+            "npm run test:okta-hosted-login"
         ],
         "test:resource-server": [
-            "composer update-okta-oidc-tck",
-            "if [[ -f testenv.resource-server ]]; then source testenv.resource-server; fi && npm run test:resource-server"
+            "composer setup-env",
+            "npm run test:resource-server"
         ],
         "sample:custom-login": "php -S 127.0.0.1:8080 -t ./custom-login ./custom-login/index.php",
         "sample:okta-hosted-login": "php -S 127.0.0.1:8080 -t ./okta-hosted-login ./okta-hosted-login/index.php",
         "sample:resource-server": "php -S 127.0.0.1:8000 -t ./resource-server ./resource-server/index.php",
-        "get-okta-oidc-tck": "if [[ `echo npm -v` ]]; then npm run get-oidc-tck; fi",
-        "update-okta-oidc-tck": "if [[ `echo npm -v` ]]; then npm run update-oidc-tck; fi",
+        "setup-env": "npm run setup-env",
         "post-autoload-dump": [
           "echo \"Dumping Custom Login Autoload\" && cd custom-login && composer dump-autoload",
           "echo \"Dumping Okta Hosted Login Autoload\" && cd okta-hosted-login && composer dump-autoload",

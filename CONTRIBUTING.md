@@ -71,6 +71,69 @@ $ git rebase master
 
 > Now your `feature/my-new-feature` branch is up-to-date with all the code in `upstream/master`.
 
+Running E2E Tests locally before commits
+----------------------------------------
+E2E Tests can be run against the Custom Login, Okta-Hosted Login and Resource servers
+
+Follow the steps below to run the tests locally:
+
+```bash
+# At project root
+composer install
+```
+To test the samples you will need the following configured in your developer org:
+
+* [A Web application](/okta-hosted-login#prerequisites)
+* [A SPA application](https://github.com/okta/samples-js-angular/tree/master/okta-hosted-login#prerequisites)
+* A test user account with a known username and password. Note that the USERNAME should be of the form "username@email.com"
+
+Once you have those resources setup, export their details as the following environment variables:
+
+```bash
+export ISSUER=https://{yourOktaDomain}.com/oauth2/default
+export CLIENT_ID={yourWebAppClientId}
+export CLIENT_SECRET={yourWebAppClientSecret}
+export SPA_CLIENT_ID={yourSpaAppClientId}
+export USERNAME={userName}
+export PASSWORD={password}
+```
+
+For Windows, please set the following environment variables:
+- `ISSUER`
+- `CLIENT_ID`
+- `CLIENT_SECRET`
+- `SPA_CLIENT_ID`
+- `USER_NAME`
+- `PASSWORD`
+
+As an alternative you can provide the environment variables in a file named `testenv` in the root folder.
+
+For example:
+
+```
+ISSUER=https://dev-12345.oktapreview.com/oauth2/default
+CLIENT_ID=webclient123
+CLIENT_SECRET=websecret123
+SPA_CLIENT_ID=spaclient123
+USERNAME=myuser@example.com
+PASSWORD=mypassword
+```
+
+> **NOTE:** Windows has USERNAME as a built-in system variable, hence set the USER_NAME environment variable for testing.
+
+Then run the E2E tests:
+
+```bash
+composer test
+```
+
+> **NOTE:** If you want to execute tests for okta-hosted-login, custom-login or resource-server in isolation, you can run the following scripts
+
+```bash
+composer test:okta-hosted-login
+composer test:custom-login
+composer test:resource-server
+```
 
 Make a GitHub Pull Request to contribute your changes
 -----------------------------------------------------
