@@ -3,25 +3,18 @@ language: php
 addons:
   chrome: stable
 
-dist: trusty
-
 matrix:
   include:
-  # - php: 7.0
-  #   env: TEST=e2e
-  # - php: 7.0
-  #   env: TEST=resource-server
-  #   env: CLIENT_ID=$RS_CLIENT_ID
-  # - php: 7.1
-  #   env: TEST=e2e
-  # - php: 7.1
-  #   env: TEST=resource-server
-  #   env: CLIENT_ID=$RS_CLIENT_ID
-  # - php: 7.2
-  #   env: TEST=e2e
-  # - php: 7.2
-  #   env: TEST=resource-server
-  #   env: CLIENT_ID=$RS_CLIENT_ID
+  - php: 7.2
+    env: TEST=e2e
+  - php: 7.2
+    env: TEST=resource-server
+    env: CLIENT_ID=$RS_CLIENT_ID
+  - php: 7.3
+    env: TEST=e2e
+  - php: 7.3
+    env: TEST=resource-server
+    env: CLIENT_ID=$RS_CLIENT_ID
   - php: 7.4
     env: TEST=e2e
   - php: 7.4
