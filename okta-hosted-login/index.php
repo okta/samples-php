@@ -40,8 +40,7 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) u
             'response_mode' => 'query',
             'scope' => 'openid profile',
             'redirect_uri' => 'http://localhost:8080/authorization-code/callback',
-            'state' => $state,
-            'nonce' => random_bytes(32)
+            'state' => $state
         ]);
 
         header('Location: ' . getenv("ISSUER").'/v1/authorize?'.$query);
