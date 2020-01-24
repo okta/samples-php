@@ -73,12 +73,10 @@ function copyAndUpdateConfig(directory) {
   const envFile = path.join(directory, '.env');
 
   if (fs.existsSync(envFile)) {
-    console.log(`.env file already exists in ${directory}`);
-    return;
+    console.log(`.env file already exists in ${directory}. Replacing it with new values...`);
   }
 
   const copyCommand = process.platform === 'win32'? 'copy' : 'cp';
-
   execSync(`${copyCommand} ${path.join(directory, '.env.dist')} ${path.join(directory, '.env')}`);
 
   updateConfig(directory);
