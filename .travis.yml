@@ -29,4 +29,8 @@ script:
   - if [[ $TEST = 'e2e' ]]; then composer test:e2e; fi
 
 notifications:
-  slack: okta:dtcmG9Sqx3PpnEthGwfEmlnu
+  slack:
+    rooms:
+      - okta:dtcmG9Sqx3PpnEthGwfEmlnu#eng-devex_alerts
+    on_success: never 
+    on_failure: always
