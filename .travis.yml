@@ -31,7 +31,7 @@ script:
 notifications:
   slack:
     rooms:
-      - okta:dtcmG9Sqx3PpnEthGwfEmlnu#eng-devex_alerts
+      - secure: sNA5aG6S8j7NDJjtJMTAvQ3H9nNMuq/mDQcbp9eLUfhFc7VINy6GH43uKwTJGL+//48705BfeKup6Hhwc9Ufof7hmdNx7fqWAU/sKnWnzVJBa+BPnIkV736zVksblunk6BMK3cvkV1fl0B9WYkSxkkEii1YQZ9hjTMu5tc7YlqpKBbiLcRMW/uf24q6vJHz6wMperGldBF831pdDopTlmPXtL4mj//wiM6+ulHdENUhiluhV1ulkIh0iZhMdefUiHt0xkJaOFKWYe5mygYeOJ6k4Wt8fpU4fe44uP/7Bc2oEY5LLsSzBWaPMxFibA1XrRuSw10xY1QzVPOcPNGDNtdyceAbWLBjLuc6dYeofth3z1CPo6P2bO37ZW2qOoLETddN4UNfmw+wyQxD3tAdefzRP/u9NCDPIlabHtB6LnIllu2RHmA5b3q9n+KAgaol4ID+3aDUlP/pQyHtMJ36RLDXO/B2TYeHVTipJ7M4t85pZVCa55fvvrfM3vWsVxzs4m5tU8rqav98emMf7YwHmeiwDXrzhzc1gg0ijhmWZIK5rcKqkUFMMZCy3rfHCJj1HkxXIIHDGhpo1EqWYanxvmAz/Wij8Oq36VcedHib7VOHLZy5QoXgvw3aLMG4MVDQ6DGzhxbUuW+kvWPM9n6M5g//nO4t/T7cGu91D0POZH5I=
     on_pull_requests: false
     on_success: never
     on_failure: always
