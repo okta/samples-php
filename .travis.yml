@@ -27,3 +27,6 @@ install:
 script:
   - if [[ $TEST = 'resource=-server' ]]; then composer test:resource-server; fi
   - if [[ $TEST = 'e2e' ]]; then composer test:e2e; fi
+
+notifications:
+  slack: okta:dtcmG9Sqx3PpnEthGwfEmlnu
