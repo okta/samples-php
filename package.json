@@ -13,6 +13,7 @@
   },
   "homepage": "https://github.com/okta/samples-php#readme",
   "devDependencies": {
+    "axios": "^0.19.0",
     "dotenv": "^5.0.1",
     "find-process": "^1.1.0",
     "forever-monitor": "^1.7.1",
@@ -32,6 +33,6 @@
     "test:custom-login": "protractor okta-oidc-tck/e2e-tests/custom-login/conf.js",
     "resource-server": "composer sample:resource-server",
     "test:resource-server": "jasmine okta-oidc-tck/resource-server/specs/okta-resource-server-spec.js",
-    "pretest": "./scripts/update-se-drivers.sh"
+    "pretest": "node ./scripts/update-se-drivers.js"
   }
 }
