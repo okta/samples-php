@@ -22,7 +22,7 @@ const path = require('path');
 require('dotenv').config({path: path.join(__dirname, '..', 'testenv')});
 
 function updateConfig(directory) {
-  if (!process.env.ISSUER || !process.env.CLIENT_ID || !process.env.CLIENT_SECRET || !process.env.USERNAME || !process.env.PASSWORD) {
+  if (!process.env.ISSUER || !process.env.CLIENT_ID || !process.env.CLIENT_SECRET || !process.env.USER_NAME || !process.env.PASSWORD) {
     console.log('[ERROR] Please set the necessary Environment variables (ISSUER, CLIENT_ID, CLIENT_SECRET, USERNAME, PASSWORD)');
     process.exit(1);
   }
@@ -42,7 +42,7 @@ function updateConfig(directory) {
 
   let result = data.replace(/CLIENT_ID=/g, `CLIENT_ID=${clientId}`);
   result = result.replace(/CLIENT_SECRET=/g, `CLIENT_SECRET=${process.env.CLIENT_SECRET}`);
-  result = result.replace(/ISSUER=https:\/\/{yourOktaDomain}.com\/oauth2\/default/g, `ISSUER=${process.env.ISSUER}/`);
+  result = result.replace(/ISSUER=https:\/\/{yourOktaDomain}\/oauth2\/default/g, `ISSUER=${process.env.ISSUER}/`);
   fs.writeFileSync(envFile, result, 'utf8');
 }
 
@@ -73,10 +73,12 @@ function copyAndUpdateConfig(directory) {
   const envFile = path.join(directory, '.env');
 
   if (fs.existsSync(envFile)) {
-    console.log(`.env file already exists in ${directory}. Replacing it with new values...`);
+    console.log(`.env file already exists in ${directory}`);
+    return;
   }
 
   const copyCommand = process.platform === 'win32'? 'copy' : 'cp';
+
   execSync(`${copyCommand} ${path.join(directory, '.env.dist')} ${path.join(directory, '.env')}`);
 
   updateConfig(directory);

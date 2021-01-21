@@ -17,11 +17,11 @@
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-$loader = new Twig_Loader_Filesystem(__DIR__ . '/views');
-$twig = new Twig_Environment($loader);
+$loader = new \Twig\Loader\FilesystemLoader(__DIR__ . '/views');
+$twig = new \Twig\Environment($loader);
 
-$dotenv = new Dotenv\Dotenv(__DIR__);
-$dotenv->overload();
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 
 $state = 'applicationState';
 
@@ -35,7 +35,7 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) u
 
     $r->get('/login', function() use ($state) {
         $query = http_build_query([
-            'client_id' => getenv('CLIENT_ID'),
+            'client_id' => $_ENV['CLIENT_ID'],
             'response_type' => 'code',
             'response_mode' => 'query',
             'scope' => 'openid profile',
@@ -43,7 +43,7 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) u
             'state' => $state
         ]);
 
-        header('Location: ' . getenv("ISSUER").'/v1/authorize?'.$query);
+        header('Location: ' . $_ENV["ISSUER"].'/v1/authorize?'.$query);
     });
 
     $r->get('/authorization-code/callback', function() use ($state) {
@@ -88,7 +88,7 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) u
 });
 
 function exchangeCode($code) {
-    $authHeaderSecret = base64_encode( getenv('CLIENT_ID') . ':' . getenv('CLIENT_SECRET') );
+    $authHeaderSecret = base64_encode( $_ENV['CLIENT_ID'] . ':' . $_ENV['CLIENT_SECRET'] );
     $query = http_build_query([
         'grant_type' => 'authorization_code',
         'code' => $code,
@@ -101,7 +101,7 @@ function exchangeCode($code) {
         'Connection: close',
         'Content-Length: 0'
     ];
-    $url = getenv("ISSUER").'/v1/token?' . $query;
+    $url = $_ENV["ISSUER"].'/v1/token?' . $query;
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
