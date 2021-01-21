@@ -21,8 +21,8 @@ header("Access-Control-Allow-Headers: Authorization");
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-$dotenv = new Dotenv\Dotenv(__DIR__);
-$dotenv->overload();
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
 
@@ -75,9 +75,10 @@ function authenticate() {
         }
 
         $jwtVerifier = (new \Okta\JwtVerifier\JwtVerifierBuilder())
-            ->setIssuer(getenv('ISSUER'))
+            ->setAdaptor(new \Okta\JwtVerifier\Adaptors\FirebasePhpJwt)
+            ->setIssuer($_ENV['ISSUER'])
             ->setAudience('api://default')
-            ->setClientId(getenv('CLIENT_ID'))
+            ->setClientId($_ENV['CLIENT_ID'])
             ->build();
 
         return $jwtVerifier->verify($matches[1]);

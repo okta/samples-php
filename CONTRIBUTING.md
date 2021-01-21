@@ -90,10 +90,10 @@ To test the samples you will need the following configured in your developer org
 Once you have those resources setup, export their details as the following environment variables:
 
 ```bash
-export ISSUER=https://{yourOktaDomain}.com/oauth2/default
-export CLIENT_ID={yourWebAppClientId}
-export CLIENT_SECRET={yourWebAppClientSecret}
-export SPA_CLIENT_ID={yourSpaAppClientId}
+export ISSUER=https://{yourOktaDomain}/oauth2/default
+export CLIENT_ID={clientId}
+export CLIENT_SECRET={clientSecret}
+export SPA_CLIENT_ID={spaAppClientId}
 export USERNAME={userName}
 export PASSWORD={password}
 ```

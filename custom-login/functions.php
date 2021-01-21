@@ -33,9 +33,10 @@ function getProfile()
     }
 
     $jwtVerifier = (new \Okta\JwtVerifier\JwtVerifierBuilder())
-        ->setIssuer(getenv('ISSUER'))
+    ->setAdaptor(new \Okta\JwtVerifier\Adaptors\FirebasePhpJwt)
+        ->setIssuer($_ENV['ISSUER'])
         ->setAudience('api://default')
-        ->setClientId(getenv('CLIENT_ID'))
+        ->setClientId($_ENV['CLIENT_ID'])
         ->build();
 
     $jwt = $jwtVerifier->verify($_COOKIE['access_token']);
@@ -48,9 +49,10 @@ function verifyJwt($jwt)
 {
     try {
         $jwtVerifier = (new \Okta\JwtVerifier\JwtVerifierBuilder())
-            ->setIssuer(getenv('ISSUER'))
+        ->setAdaptor(new \Okta\JwtVerifier\Adaptors\FirebasePhpJwt)
+            ->setIssuer($_ENV['ISSUER'])
             ->setAudience('api://default')
-            ->setClientId(getenv('CLIENT_ID'))
+            ->setClientId($_ENV['CLIENT_ID'])
             ->build();
 
         return $jwtVerifier->verify($jwt);
