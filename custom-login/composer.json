@@ -10,12 +10,14 @@
   ],
   "require": {
     "php": "^7.0",
-    "nikic/fast-route": "^1.2",
-    "twig/twig": "~2.0",
-    "vlucas/phpdotenv": "^2.4",
-    "okta/jwt-verifier": "^0.2.0",
-    "guzzlehttp/psr7": "^1.4",
-    "spomky-labs/jose": "^7.0"
+    "nikic/fast-route": "^1.3",
+    "twig/twig": "~3.2",
+    "vlucas/phpdotenv": "^5.2",
+    "okta/jwt-verifier": "^1.0",
+    "guzzlehttp/psr7": "^1.7",
+    "spomky-labs/jose": "^7.0",
+    "firebase/php-jwt": "^5.2",
+    "http-interop/http-factory-guzzle": "^1.0"
   },
   "scripts": {
     "server:start": "php -S 127.0.0.1:8080 -t ./ ./index.php",

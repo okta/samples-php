@@ -13,7 +13,7 @@ Before running this sample, you will need the following:
 To run this application, you first need to clone this repo and then enter into this directory:
 
 ```bash
-git clone git@github.com:okta/samples-php.git
+git clone https://github.com/okta/samples-php.git
 cd samples-php/okta-hosted-login
 ```
 
@@ -31,9 +31,9 @@ You also need to gather the following information from the Okta Developer Consol
 Now that you have the information from your organization that you need, copy the [`.env.dist`](.env.dist) to `.env` and fill in the information you gathered.
 
 ```bash
-CLIENT_ID={yourClientId}
-CLIENT_SECRET={yourClientSecret}
-ISSUER=https://{yourOktaDomain}.com/oauth2/default
+CLIENT_ID={clientId}
+CLIENT_SECRET={clientSecret}
+ISSUER=https://{yourOktaDomain}/oauth2/default
 
 ```
 
