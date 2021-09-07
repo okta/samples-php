@@ -5,11 +5,6 @@ addons:
 
 matrix:
   include:
-  - php: 7.2
-    env: TEST=e2e
-  - php: 7.2
-    env: TEST=resource-server
-    env: CLIENT_ID=$RS_CLIENT_ID
   - php: 7.3
     env: TEST=e2e
   - php: 7.3
