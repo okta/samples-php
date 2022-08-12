@@ -13,10 +13,10 @@
   },
   "homepage": "https://github.com/okta/samples-php#readme",
   "devDependencies": {
-    "axios": "^0.21.4",
+    "axios": "^0.27.2",
     "dotenv": "^5.0.1",
     "find-process": "^1.4.4",
-    "forever-monitor": "^1.7.1",
+    "forever-monitor": "^3.0.3",
     "jasmine": "^3.9.0",
     "jasmine-reporters": "^2.5.0",
     "node-cmd": "^3.0.0",
