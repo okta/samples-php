@@ -687,7 +687,7 @@
   "resolved" "https://registry.npmjs.org/forever-agent/-/forever-agent-0.6.1.tgz"
   "version" "0.6.1"
 
-"forever-monitor@^3.0.3":
+"forever-monitor@^3":
   "integrity" "sha512-7YGDo0UlbMy++6G3lzncWISDaT5CVp+yPVAkZ7FDFF0ec+0HKgBOWOhPGKpMF0hjcm3Ps/HbtrETrQLYREZ7YQ=="
   "resolved" "https://registry.npmjs.org/forever-monitor/-/forever-monitor-3.0.3.tgz"
   "version" "3.0.3"
